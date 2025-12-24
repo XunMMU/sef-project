@@ -6,6 +6,7 @@ const isWin = process.platform === "win32";
 
 // Window test
 describe.if(isWin)("Window platform", async () => {
+  // Window need permission ??
   test("Basic", () => expect(funny).toBe("win32"));
   try {
     if (await readlink("server/test/.test.env/link.txt")) {

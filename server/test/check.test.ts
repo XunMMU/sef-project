@@ -8,7 +8,7 @@ describe("Hashing (Argon2id)", async () => {
 
   const hash = await Bun.password.hash(pw, {
     algorithm: "argon2id",
-    timeCost: Number(Bun.env.HASH_ITER) ?? 4,
+    timeCost: Number(Bun.env.HASH_ITER ?? 4),
   });
 
   test("Length", () => {

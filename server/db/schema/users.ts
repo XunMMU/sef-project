@@ -2,8 +2,10 @@ import {
   boolean,
   date,
   integer,
+  json,
   pgTable,
   text,
+  time,
   varchar,
 } from "drizzle-orm/pg-core";
 
@@ -41,4 +43,11 @@ export const admin = pgTable("admin", {
   name: text().notNull(),
   email: text().notNull().unique(),
   password: varchar({ length: 118 }).notNull(),
+});
+
+export const notification = pgTable("notification", {
+  id: integer().primaryKey(),
+  time: time().notNull(),
+  text: text().notNull(),
+  user_info: json().notNull(),
 });
